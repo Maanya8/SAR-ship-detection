@@ -13,7 +13,7 @@ A YOLOv8s-P2 ship detector trained on LS-SSDD-v1.0 (Sentinel-1) and run on a rea
 code/
   lsssdd_preprocess.ipynb       # 1. parse labels, normalise, split by scene, build YOLO dataset
   lsssdd_train_yolov8s.ipynb    # 2. train YOLOv8s / YOLOv8s-P2 (resumable), evaluate on test
-  lsssdd_diagnose_recall.ipynb  # 3. optional: recall by ship size, missed-ship gallery
+  lsssdd_diagnose_recall.ipynb  # 3. recall by ship size, missed-ship gallery
   s1_gee_export.js              # optional: export a Sentinel-1 VV dB GeoTIFF from Google Earth Engine
   s1_xview3_inference.py        # 4. inference on a Sentinel-1 scene (CPU), scoring and overlays
   s1_xview3_inference.ipynb     #    same as the .py, as a notebook
@@ -58,10 +58,6 @@ To resume a stopped run, attach that run's own output as an input and run it aga
    - `detections.csv`, with latitude and longitude for each detection
    - `overlay_region.png` and `overlay_zoom.png`
    - `intensity_settings.png`
-
-A run on a 48 km crop takes about 1–2 minutes on a laptop CPU.
-
-To use your own scene instead of xView3, export one with `s1_gee_export.js` in the Earth Engine Code Editor.
 
 ## Notes
 - The scene is converted from dB to 8-bit so it looks like the training tiles. The script compares 4 settings, and grey-45 worked best.
